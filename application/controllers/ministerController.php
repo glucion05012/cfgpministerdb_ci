@@ -41,8 +41,14 @@
         public function home(){
             if(isset($_SESSION['name'])){
 
-                $data['minister'] =  $this->ministermodel->login();
+                $this->ministermodel->login();
+                $data['ordination'] =  $this->ministermodel->get_ordination($_SESSION['id']);
+
+                $data['minister'] =  $this->ministermodel->get_minister($_SESSION['id']);
+                $data['minister_children'] =  $this->ministermodel->get_minister_children($_SESSION['id']);
+                $data['minister_education'] =  $this->ministermodel->get_minister_education($_SESSION['id']);
                 
+                // echo json_encode( $data['ordination']);
                 $this->load->view('templates/header');
                 $this->load->view('home', $data);
                 $this->load->view('templates/footer');   

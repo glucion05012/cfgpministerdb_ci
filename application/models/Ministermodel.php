@@ -103,5 +103,11 @@ class Ministermodel extends CI_Model{
 
         return $this->minister->insert('ordination', $data);
     }
+
+    public function get_ordination($id){
+        $query = $this->minister->get('ordination');
+        $this->minister->where('ord_id', $id);
+        return $query->result_array();
+    }
 }
 ?>
