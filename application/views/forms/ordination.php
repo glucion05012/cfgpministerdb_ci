@@ -49,6 +49,8 @@
             <div class="row">
                 <div class='col-sm-12'>
                     <input type='hidden' name='min_id' value='<?php echo $min_id ?>'>
+                    <input type='hidden' name='date_submited' value='<?php echo date("Y-m-d H:i:s"); ?>'>
+                    <input type='hidden' name='status' value='Submitted'>
                     <p><b>Personal Record</b></p>
                 </div>
                 <div class='col-sm-2'>
@@ -158,7 +160,7 @@
                     <span><i>(If separated)</i> Reason for separation and present residence of former companion (Give particulars)</span>
                 </div>
                 <div class='col-sm-12'>
-                    <textarea name="if_separateds" cols="100" rows="3"></textarea>
+                    <textarea name="if_separated" cols="100" rows="3"></textarea>
                 </div>
 
                 <div class='col-sm-12'>
