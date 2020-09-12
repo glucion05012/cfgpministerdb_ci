@@ -66,5 +66,11 @@
                 $this->logout();
             }
         }
+
+        public function ordination_create(){
+                // $this->budget_allocation_model->add_main_pap();
+                $this->session->set_flashdata('successmsg', 'Application successfully submitted!');
+                redirect('home');
+        }
     }
 ?>

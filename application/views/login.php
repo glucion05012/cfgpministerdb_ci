@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="<?= base_url('login'); ?>" method="post" accept-charset="utf-8">
+<form class="form-login" action="<?= base_url('login'); ?>" method="post" accept-charset="utf-8">
     <h1>Minister Profile</h1>
     <p>CHURCH OF THE FOURSQUARE GOSPEL IN THE PHILIPPINES</p>
     <div class="imgcontainer">

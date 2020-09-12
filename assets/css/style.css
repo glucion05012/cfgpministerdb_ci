@@ -1,12 +1,23 @@
 body {font-family: Arial, Helvetica, sans-serif;}
-form {
+.form-login {
     border: 3px solid #f1f1f1;
     width: 30%;
     margin: auto;
 }
 
 .errormsg{
-    color: red;
+  color: white;
+  background-color: red;
+  width: 30%;
+  margin: auto;
+  margin-top: 1em;
+}
+.successmsg{
+  color: white;
+  background-color: green;
+  width: 30%;
+  margin: auto;
+  margin-top: 1em;
 }
 
 h1, p{
@@ -69,4 +80,11 @@ button:hover {
 
 .form-group div{
   padding: .4em;
+}
+
+.center-button{
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    margin: auto;
 }

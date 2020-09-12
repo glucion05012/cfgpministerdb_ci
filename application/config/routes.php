@@ -10,3 +10,5 @@ $route['logout'] = 'ministercontroller/logout';
 $route['home'] = 'ministercontroller/home';
 
 $route['forms/ordination'] = 'ministercontroller/ordination';
+
+$route['ordination/create'] = 'ministercontroller/ordination_create';

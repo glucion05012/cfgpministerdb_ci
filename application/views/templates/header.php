@@ -90,6 +90,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <i class="fas fa-user-tie nav-icon"></i>
                   <p>Ordination</p>
                 </a>
+                <a href="<?php echo base_url(); ?>forms/ordination" class="nav-link" class="nav-link active">
+                  <i class="fas fa-user-tie nav-icon"></i>
+                  <p>Credential</p>
+                </a>
               </li>
             </ul>
           </li>
