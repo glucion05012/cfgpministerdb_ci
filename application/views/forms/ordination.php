@@ -470,7 +470,7 @@ Reinstated-YYYY
 
                 <!-- Modal body -->
                 <div class="modal-body">  
-                    <img src="<?= base_url('assets/images/CodeofEthics.png'); ?>" width="100%" height="100%">
+                    <img src="<?= base_url('assets/images/coe.png'); ?>" width="100%" height="100%">
                 </div>
 
                 <!-- Modal footer -->
