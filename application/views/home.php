@@ -17,6 +17,48 @@
             </tr>
         </thead>
         <tbody> 
+        <?php 
+            $father_name = ''; 
+            $mother_name = ''; 
+            $mother_name = '';
+            $mailing_address = '';
+            $solemnizing_official = '';
+            $solemnizing_place = '';
+            $if_separated = '';
+            $if_engaged_to = '';
+            $if_engaged_christian = '';
+            $if_engaged_member = '';
+            $if_engaged_symphaty = '';
+            $if_engaged_not_symphaty = '';
+            $if_engaged_minister = '';
+            $if_engaged_graduate_fbc = '';
+            $if_engaged_when_married = '';
+            $course_bible_college = '';
+            $year_conversion_when = '';
+            $year_conversion_where = '';
+            $year_baptized_when = '';
+            $year_baptized_where = '';
+            $testimony = '';
+            $ministerial_activities = '';
+            $churches_pioneered = '';
+            $churches_evangelized = '';
+            $resigned_pastorate = '';
+            $fulltime_ministry = '';
+            $secular_employment = '';
+            $foursquare_credentials = '';
+            $other_licensed = '';
+            $pending_application = '';
+            $harmony_authority = '';
+            $pledged_foursquare = '';
+            $teaching_principles = '';
+            $teach_tithing = '';
+            $consistent_tither = '';
+            $ministry_support = '';
+            $declaration_faith = '';
+            $way_salvation = '';
+            $holy_trinity = '';
+            $eternal_security = '';
+        ?>
             <?php foreach($ordination as $ord) : ?>
 
                 <!-- for modal summary -->
