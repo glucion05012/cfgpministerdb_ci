@@ -21,7 +21,6 @@
             $father_name = ''; 
             $mother_name = ''; 
             $mother_name = '';
-            $mailing_address = '';
             $solemnizing_official = '';
             $solemnizing_place = '';
             $if_separated = '';
@@ -66,7 +65,6 @@
                     $father_name = $ord['ord_father_name']; 
                     $mother_name = $ord['ord_mother_name']; 
                     $mother_name = $ord['ord_mother_name'];
-                    $mailing_address = $ord['ord_mailing_address'];
                     $solemnizing_official = $ord['ord_solemnizing_official'];
                     $solemnizing_place = $ord['ord_solemnizing_place'];
                     $if_separated = $ord['ord_if_separated'];
@@ -149,7 +147,7 @@
                         $civil_status = $min['min_cstatus'];
                         $dom = $min['sp_date_marriage'];
                         $spouse_name = $min['sp_fullname'];
-                        
+                        $min_address = $min['min_address'];
                     }
                 ?>
 
@@ -197,10 +195,10 @@
                         </div>
 
                         <div class='col-sm-2'>
-                            <span>Mailing Address:</span>
+                            <span>Address:</span>
                         </div>
                         <div class='col-sm-10'>
-                            <input class="form-control" type="text" name="mail_address"  value="<?php echo $mailing_address ?>" readonly>
+                            <input class="form-control" type="text" name="mail_address"  value="<?php echo $min_address ?>" readonly>
                         </div>
 
                         <div class='col-sm-2'>
@@ -312,7 +310,7 @@
                         </div>
                         <div class='col-sm-12'>
                             When do you plan to get married?
-                            <input type="date" name="eng_plan_married" style="width: 200px;"  value="<?php echo $if_engaged_when_married ?>" readonly>
+                            <input type="month" name="eng_plan_married" style="width: 200px;"  value="<?php echo $if_engaged_when_married ?>" readonly>
                         </div>
 
                         <div class='col-sm-12'>
@@ -321,7 +319,7 @@
 
                         <table border=1 style="width: 100%; margin-bottom:2em;">
                             <tr>
-                                <td><b>Scgool</b></td>
+                                <td><b>School</b></td>
                                 <td><b>Year</b></td>
                                 <td><b>Level</b></td>
                             </tr>

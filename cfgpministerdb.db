@@ -3,7 +3,6 @@ CREATE TABLE ordination (
     ord_min_id INTEGER(20),
     ord_father_name VARCHAR(200),
     ord_mother_name VARCHAR(200),
-    ord_mailing_address VARCHAR(200),
     ord_solemnizing_official VARCHAR(200),
     ord_solemnizing_place VARCHAR(200),
     ord_if_separated VARCHAR(200),

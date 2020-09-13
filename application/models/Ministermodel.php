@@ -56,7 +56,6 @@ class Ministermodel extends CI_Model{
             'ord_min_id' => $this->input->post('min_id'),
             'ord_father_name' => $this->input->post('father_name'),
             'ord_mother_name' => $this->input->post('mother_name'),
-            'ord_mailing_address' => $this->input->post('mail_address'),
             'ord_solemnizing_official' => $this->input->post('s_official'),
             'ord_solemnizing_place' => $this->input->post('s_place'),
             'ord_if_separated' => $this->input->post('if_separated'),
