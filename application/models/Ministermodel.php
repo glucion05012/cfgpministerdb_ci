@@ -109,10 +109,48 @@ class Ministermodel extends CI_Model{
         return $query->result_array();
     }
 
+    public function get_recommendation_ordination(){
+        $query = $this->minister->get('recommendation_ordination');
+        return $query->result_array();
+    }
+
     public function get_ordination($id){
         $this->minister->where('ord_id', $id);
         $query = $this->minister->get('ordination');
         return $query->result_array();
+    }
+
+    public function add_recommendation(){
+        $data = array(
+            'ro_known' => $this->input->post('long_knonwn'),
+            'ro_capacity' => $this->input->post('capacity'),
+            'ro_remain' => $this->input->post('permanent'),
+            'ro_doctrinally' => $this->input->post('doctrinally'),
+            'ro_loyalty' => $this->input->post('loyalty'),
+            'ro_spirituality' => $this->input->post('spirituality'),
+            'ro_dependability' => $this->input->post('dependability'),
+            'ro_intelligence' => $this->input->post('intelligence'),
+            'ro_initiative' => $this->input->post('initiative'),
+            'ro_personality' => $this->input->post('personality'),
+            'ro_domestic' => $this->input->post('adjustment'),
+            'ro_relationship' => $this->input->post('relationship'),
+            'ro_appearance' => $this->input->post('personal'),
+            'ro_health' => $this->input->post('health'),
+            'ro_financial' => $this->input->post('financial'),
+            'ro_dedication' => $this->input->post('dedication'),
+            'ro_abilities' => $this->input->post('abilities'),
+            'ro_preaching' => $this->input->post('preaching'),
+            'ro_teaching' => $this->input->post('teaching'),
+            'ro_youth' => $this->input->post('youth'),
+            'ro_music' => $this->input->post('music'),
+            'ro_comments' => $this->input->post('comments'),
+            'ro_recommendation' => $this->input->post('recommend'),
+            'ro_recommender' => $this->input->post('recommender'),
+            'ro_date_submitted' => $this->input->post('date_submited'),
+            'ro_ord_id' => $this->input->post('ord_id'),
+        );
+
+        return $this->minister->insert('recommendation_ordination', $data);
     }
 }
 ?>

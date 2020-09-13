@@ -121,7 +121,16 @@
                     </td>
                     <td><?php echo $ord['ord_date_submitted']; ?></td>
                     <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
-                    <td>0</td>
+                    <?php
+                        $i = 0;
+                        foreach($recommendation_ordination as $ro){
+                            if ($ord['ord_id'] == $ro['ro_ord_id']){
+                                
+                                $i++;
+                            }
+                        };
+                    ?>
+                    <td><?php echo $i; ?></td>
                     <td><a href="ordination/summary/<?php echo $ord['ord_min_id'] ?>" data-toggle="modal" data-target="#acceptModal"><i class="fa fa-list-alt" style="font-size:24px; margin-left: 1em;"></i></a></td>
 
                 </tr>   

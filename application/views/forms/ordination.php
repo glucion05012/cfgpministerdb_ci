@@ -50,7 +50,7 @@
             <div class="row">
                 <div class='col-sm-12'>
                     <input type='hidden' name='min_id' value='<?php echo $min_id ?>'>
-                    <input type='hidden' name='date_submited' value='<?php echo date("Y-m-d H:i:s"); ?>'>
+                    <input type='hidden' name='date_submited' value='<?php date_default_timezone_set('Asia/Manila'); echo date('F j, Y g:i:a  '); ?>'>
                     <input type='hidden' name='status' value='Submitted'>
                     <p><b>Personal Record</b></p>
                 </div>

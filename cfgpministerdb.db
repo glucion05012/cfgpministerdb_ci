@@ -48,3 +48,35 @@ CREATE TABLE ordination (
     ord_remarks VARCHAR(200),
     PRIMARY KEY (ord_id)
 );
+
+CREATE TABLE recommendation_ordination (
+    ro_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    ro_known VARCHAR(500),
+    ro_capacity VARCHAR(500),
+    ro_remain VARCHAR(500),
+    ro_doctrinally VARCHAR(500),
+    ro_loyalty VARCHAR(500),
+    ro_spirituality VARCHAR(200),
+    ro_dependability VARCHAR(200),
+    ro_intelligence VARCHAR(200),
+    ro_initiative VARCHAR(200),
+    ro_personality VARCHAR(200),
+    ro_domestic  VARCHAR(200),
+    ro_relationship VARCHAR(200),
+    ro_appearance VARCHAR(200),
+    ro_health VARCHAR(200),
+    ro_financial  VARCHAR(200),
+    ro_dedication  VARCHAR(200),
+    ro_abilities VARCHAR(200),
+    ro_preaching VARCHAR(200),
+    ro_teaching VARCHAR(200),
+    ro_youth VARCHAR(200),
+    ro_music VARCHAR(200),
+    ro_comments VARCHAR(500),
+    ro_recommendation VARCHAR(200),
+    ro_recommender VARCHAR(200),
+    ro_date_submitted VARCHAR(200),
+    ro_ord_id INTEGER(20),
+    PRIMARY KEY (ro_id),
+    FOREIGN KEY (ro_ord_id) REFERENCES ordination(ord_id)
+);
