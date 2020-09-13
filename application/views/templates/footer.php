@@ -1,10 +1,22 @@
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#requirementsModal').modal({
-            show: true
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#requirementsModal').modal({
+                show: true
+            });
         });
-    });
-</script>
+    </script>
+
+    <script>
+        function copyURI(evt) {
+            evt.preventDefault();
+            navigator.clipboard.writeText(evt.target.getAttribute('href')).then(() => {
+            /* clipboard successfully set */
+            alert(evt.target.getAttribute('href'));
+            }, () => {
+            /* clipboard write failed */
+            });
+        }
+    </script>
 
     <!-- Main Footer -->
     <footer class="main-footer">

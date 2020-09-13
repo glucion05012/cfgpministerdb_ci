@@ -42,13 +42,13 @@
             if(isset($_SESSION['name'])){
 
                 $this->ministermodel->login();
-                $data['ordination'] =  $this->ministermodel->get_ordination($_SESSION['id']);
+                $data['ordination_min'] =  $this->ministermodel->get_ordination_min($_SESSION['id']);
 
                 $data['minister'] =  $this->ministermodel->get_minister($_SESSION['id']);
                 $data['minister_children'] =  $this->ministermodel->get_minister_children($_SESSION['id']);
                 $data['minister_education'] =  $this->ministermodel->get_minister_education($_SESSION['id']);
                 
-                // echo json_encode( $data['ordination']);
+                // echo json_encode( $data['ordination'] );
                 $this->load->view('templates/header');
                 $this->load->view('home', $data);
                 $this->load->view('templates/footer');   
@@ -78,6 +78,16 @@
                 
                 $this->session->set_flashdata('successmsg', 'Application successfully submitted!');
                 redirect('home');
+        }
+
+        public function recommendation($id){
+            $data['ordination'] =  $this->ministermodel->get_ordination($id);
+            $min_id = json_encode($data['ordination'][0]['ord_min_id']);
+            $min_id = trim($min_id, '"');
+            $data['minister'] =  $this->ministermodel->get_minister($min_id);
+
+            // echo json_encode( $data['minister'] );
+            $this->load->view('forms/recommendation', $data);
         }
     }
 ?>

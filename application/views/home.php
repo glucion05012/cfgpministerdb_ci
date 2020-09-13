@@ -13,6 +13,8 @@
                 <th scope="col">Status</th>
                 <th scope="col">Remarks</th>
                 <th scope="col">Date Submitted</th>
+                <th scope="col">R - Forms</th>
+                <th scope="col">R - count</th>
                 <th scope="col">View</th>
             </tr>
         </thead>
@@ -58,7 +60,7 @@
             $holy_trinity = '';
             $eternal_security = '';
         ?>
-            <?php foreach($ordination as $ord) : ?>
+            <?php foreach($ordination_min as $ord) : ?>
 
                 <!-- for modal summary -->
                 <?php 
@@ -118,6 +120,8 @@
                         ?>
                     </td>
                     <td><?php echo $ord['ord_date_submitted']; ?></td>
+                    <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
+                    <td>0</td>
                     <td><a href="ordination/summary/<?php echo $ord['ord_min_id'] ?>" data-toggle="modal" data-target="#acceptModal"><i class="fa fa-list-alt" style="font-size:24px; margin-left: 1em;"></i></a></td>
 
                 </tr>   
