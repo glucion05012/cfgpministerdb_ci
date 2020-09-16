@@ -277,11 +277,16 @@
                     <select name="recommend">
                         <option value="">----- PLEASE SELECT -----</option>
                         <option value="Yes">YES</option>
-                        <option value="With reservation">With reservation </option>
+                        <option value="With Reservation">With Reservation </option>
                         <option value="No">NO</option>
                     </select>
                     </td>
-                </tr>     
+                </tr>   
+
+                <tr>
+                    <td><i>Please state the reason if your answer is <b>With Reservation</b> or <b>NO</b>.</i></td>
+                    <td><textarea name="recommend_remarks" cols="100" rows="3"></textarea></td>
+                </tr>  
 
                 <tr>
                     <td colspan=2 style="text-align: center; padding-top: 3em;">Type your <b>Name</b> followed by your <b>Position</b> to confirm the information stated above:</td>

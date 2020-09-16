@@ -74,6 +74,7 @@ CREATE TABLE recommendation_ordination (
     ro_music VARCHAR(200),
     ro_comments VARCHAR(500),
     ro_recommendation VARCHAR(200),
+    ro_recommendation_remarks VARCHAR(500),
     ro_recommender VARCHAR(200),
     ro_date_submitted VARCHAR(200),
     ro_ord_id INTEGER(20),

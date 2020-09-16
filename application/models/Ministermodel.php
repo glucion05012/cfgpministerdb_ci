@@ -145,6 +145,7 @@ class Ministermodel extends CI_Model{
             'ro_music' => $this->input->post('music'),
             'ro_comments' => $this->input->post('comments'),
             'ro_recommendation' => $this->input->post('recommend'),
+            'ro_recommendation_remarks' => $this->input->post('recommend_remarks'),
             'ro_recommender' => $this->input->post('recommender'),
             'ro_date_submitted' => $this->input->post('date_submited'),
             'ro_ord_id' => $this->input->post('ord_id'),
