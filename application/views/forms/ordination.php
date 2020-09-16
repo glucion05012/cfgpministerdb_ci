@@ -52,6 +52,7 @@
                     <input type='hidden' name='min_id' value='<?php echo $min_id ?>'>
                     <input type='hidden' name='date_submited' value='<?php date_default_timezone_set('Asia/Manila'); echo date('F j, Y g:i:a  '); ?>'>
                     <input type='hidden' name='status' value='Submitted'>
+                    <input type='hidden' name='remarks' value='For District Review'>
                     <p><b>Personal Record</b></p>
                 </div>
                 <div class='col-sm-2'>

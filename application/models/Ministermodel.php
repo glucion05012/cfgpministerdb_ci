@@ -97,6 +97,7 @@ class Ministermodel extends CI_Model{
             'ord_district_interview' => $this->input->post(''),
             'ord_national_status' => $this->input->post(''),
             'ord_national_exam' => $this->input->post(''),
+            'ord_remarks' => $this->input->post('remarks'),
             'ord_national_interview' => $this->input->post(''),
         );
 

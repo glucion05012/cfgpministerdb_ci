@@ -110,15 +110,7 @@
                     <td><?php echo $ord['ord_id']; ?></td>
                     <td>Ordination Application</td>
                     <td><?php echo $ord['ord_district_status']; ?></td>
-                    <td>
-                        <?php 
-                            if($ord['ord_district_status'] = 'Submitted'){
-                                echo 'For District Review';
-                            }else if($ord['ord_district_status'] = 'Denied'){
-                                echo $ord['ord_district_interview'];
-                            }
-                        ?>
-                    </td>
+                    <td><?php echo $ord['ord_remarks']; ?></td>
                     <td><?php echo $ord['ord_date_submitted']; ?></td>
                     <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
                     <?php
