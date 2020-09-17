@@ -103,6 +103,8 @@
                     $way_salvation = $ord['ord_way_salvation'];
                     $holy_trinity = $ord['ord_holy_trinity'];
                     $eternal_security = $ord['ord_eternal_security'];
+
+                    $ord_min_id =  $ord['ord_min_id'];
                 ?>
 
 
@@ -123,7 +125,18 @@
                         };
                     ?>
                     <td><?php echo $i; ?></td>
-                    <td><a href="ordination/summary/<?php echo $ord['ord_min_id'] ?>" data-toggle="modal" data-target="#acceptModal"><i class="fa fa-list-alt" style="font-size:24px; margin-left: 1em;"></i></a></td>
+                    <?php 
+                    if ($ord['ord_district_status'] == 'Returned'){
+                        echo"
+                        <td><a href='ordination/edit/$ord_min_id' data-toggle='modal' data-target='#updateModal'><i class='fas fa-edit' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                        ";
+                    }else{
+                        echo"
+                        <td><a href='ordination/summary/$ord_min_id' data-toggle='modal' data-target='#acceptModal'><i class='fa fa-list-alt' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                        ";
+                    }
+                    ?>
+                    
 
                 </tr>   
             <?php endforeach; ?>
