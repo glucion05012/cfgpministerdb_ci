@@ -24,8 +24,19 @@
             <tr class="table-active"> 
                 <td><?php echo $ord['ord_id']; ?></td>
                 <td>Ordination Application</td>
-                <td><?php echo $ord['ord_district_status']; ?></td>
-                <td><?php echo $ord['ord_remarks']; ?></td>
+               
+                <?php
+                if($ord['ord_district_status'] == 'For Interview'){
+                    echo" <td>". $ord['ord_district_status'] ." on ". $ord['ord_district_interview'] ."</td> ";
+                }else if($ord['ord_district_status'] == 'Accepted'){
+                    echo" <td><span style='color: green;'><b>". $ord['ord_district_status'] ."</b></span> for National Review</td> ";
+                }else  if($ord['ord_district_status'] == 'Denied'){
+                    echo" <td><span style='color: red;'><b>". $ord['ord_district_status'] ."</b></span></td> ";
+                }else{
+                    echo" <td>". $ord['ord_district_status'] ."</td> ";
+                }
+                ?>
+                 <td><?php echo $ord['ord_remarks']; ?></td>
                 <td><?php echo $ord['ord_date_submitted']; ?></td>
                 <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
                 <?php
