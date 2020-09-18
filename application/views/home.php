@@ -19,133 +19,92 @@
             </tr>
         </thead>
         <tbody> 
-        <?php 
-            $father_name = ''; 
-            $mother_name = ''; 
-            $mother_name = '';
-            $solemnizing_official = '';
-            $solemnizing_place = '';
-            $if_separated = '';
-            $if_engaged_to = '';
-            $if_engaged_christian = '';
-            $if_engaged_member = '';
-            $if_engaged_symphaty = '';
-            $if_engaged_not_symphaty = '';
-            $if_engaged_minister = '';
-            $if_engaged_graduate_fbc = '';
-            $if_engaged_when_married = '';
-            $course_bible_college = '';
-            $year_conversion_when = '';
-            $year_conversion_where = '';
-            $year_baptized_when = '';
-            $year_baptized_where = '';
-            $testimony = '';
-            $ministerial_activities = '';
-            $churches_pioneered = '';
-            $churches_evangelized = '';
-            $resigned_pastorate = '';
-            $fulltime_ministry = '';
-            $secular_employment = '';
-            $foursquare_credentials = '';
-            $other_licensed = '';
-            $pending_application = '';
-            $harmony_authority = '';
-            $pledged_foursquare = '';
-            $teaching_principles = '';
-            $teach_tithing = '';
-            $consistent_tither = '';
-            $ministry_support = '';
-            $declaration_faith = '';
-            $way_salvation = '';
-            $holy_trinity = '';
-            $eternal_security = '';
-        ?>
-            <?php foreach($ordination_min as $ord) : ?>
-
-                <!-- for modal summary -->
-                <?php 
-                    $father_name = $ord['ord_father_name']; 
-                    $mother_name = $ord['ord_mother_name']; 
-                    $mother_name = $ord['ord_mother_name'];
-                    $solemnizing_official = $ord['ord_solemnizing_official'];
-                    $solemnizing_place = $ord['ord_solemnizing_place'];
-                    $if_separated = $ord['ord_if_separated'];
-                    $if_engaged_to = $ord['ord_if_engaged_to'];
-                    $if_engaged_christian = $ord['ord_if_engaged_christian'];
-                    $if_engaged_member = $ord['ord_if_engaged_member'];
-                    $if_engaged_symphaty = $ord['ord_if_engaged_symphaty'];
-                    $if_engaged_not_symphaty = $ord['ord_if_engaged_not_symphaty'];
-                    $if_engaged_minister = $ord['ord_if_engaged_minister'];
-                    $if_engaged_graduate_fbc = $ord['ord_if_engaged_graduate_fbc'];
-                    $if_engaged_when_married = $ord['ord_if_engaged_when_married'];
-                    $course_bible_college = $ord['ord_course_bible_college'];
-                    $year_conversion_when = $ord['ord_year_conversion_when'];
-                    $year_conversion_where = $ord['ord_year_conversion_where'];
-                    $year_baptized_when = $ord['ord_year_baptized_when'];
-                    $year_baptized_where = $ord['ord_year_baptized_where'];
-                    $testimony = $ord['ord_testimony'];
-                    $ministerial_activities = $ord['ord_ministerial_activities'];
-                    $churches_pioneered = $ord['ord_churches_pioneered'];
-                    $churches_evangelized = $ord['ord_churches_evangelized'];
-                    $resigned_pastorate = $ord['ord_resigned_pastorate'];
-                    $fulltime_ministry = $ord['ord_fulltime_ministry'];
-                    $secular_employment = $ord['ord_secular_employment'];
-                    $foursquare_credentials = $ord['ord_foursquare_credentials'];
-                    $other_licensed = $ord['ord_other_licensed'];
-                    $pending_application = $ord['ord_pending_application'];
-                    $harmony_authority = $ord['ord_harmony_authority'];
-                    $pledged_foursquare = $ord['ord_pledged_foursquare'];
-                    $teaching_principles = $ord['ord_teaching_principles'];
-                    $teach_tithing = $ord['ord_teach_tithing'];
-                    $consistent_tither = $ord['ord_consistent_tither'];
-                    $ministry_support = $ord['ord_ministry_support'];
-                    $declaration_faith = $ord['ord_declaration_faith'];
-                    $way_salvation = $ord['ord_way_salvation'];
-                    $holy_trinity = $ord['ord_holy_trinity'];
-                    $eternal_security = $ord['ord_eternal_security'];
-
-                    $ord_min_id =  $ord['ord_min_id'];
+        
+        <?php foreach($ordination_min as $ord) : ?>
+            <tr class="table-active"> 
+                <td><?php echo $ord['ord_id']; ?></td>
+                <td>Ordination Application</td>
+                <td><?php echo $ord['ord_district_status']; ?></td>
+                <td><?php echo $ord['ord_remarks']; ?></td>
+                <td><?php echo $ord['ord_date_submitted']; ?></td>
+                <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
+                <?php
+                    $i = 0;
+                    foreach($recommendation_ordination as $ro){
+                        if ($ord['ord_id'] == $ro['ro_ord_id']){
+                            
+                            $i++;
+                        }
+                    };
                 ?>
+                <td><?php echo $i; ?></td>
+                <?php 
+                if ($ord['ord_district_status'] == 'Returned'){
+                    echo"
+                    <td><a href='' data-toggle='modal' data-target='#updateModal-". $ord['ord_id'] ."'><i class='fas fa-edit' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                    ";
+                }else{
+                    echo"
+                    <td><a href='' data-toggle='modal' data-target='#acceptModal-". $ord['ord_id'] ."'><i class='fa fa-list-alt' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                    ";
+                }
+                ?>
+                
 
-
-                <tr class="table-active"> 
-                    <td><?php echo $ord['ord_id']; ?></td>
-                    <td>Ordination Application</td>
-                    <td><?php echo $ord['ord_district_status']; ?></td>
-                    <td><?php echo $ord['ord_remarks']; ?></td>
-                    <td><?php echo $ord['ord_date_submitted']; ?></td>
-                    <td><a href="<?php echo base_url(); ?>forms/ordination/recommendation/<?php echo $ord['ord_id']; ?>" onclick="copyURI(event)">copy link</a></td>
-                    <?php
-                        $i = 0;
-                        foreach($recommendation_ordination as $ro){
-                            if ($ord['ord_id'] == $ro['ro_ord_id']){
-                                
-                                $i++;
-                            }
-                        };
-                    ?>
-                    <td><?php echo $i; ?></td>
-                    <?php 
-                    if ($ord['ord_district_status'] == 'Returned'){
-                        echo"
-                        <td><a href='ordination/edit/$ord_min_id' data-toggle='modal' data-target='#updateModal'><i class='fas fa-edit' style='font-size:24px; margin-left: 1em;'></i></a></td>
-                        ";
-                    }else{
-                        echo"
-                        <td><a href='ordination/summary/$ord_min_id' data-toggle='modal' data-target='#acceptModal'><i class='fa fa-list-alt' style='font-size:24px; margin-left: 1em;'></i></a></td>
-                        ";
-                    }
-                    ?>
-                    
-
-                </tr>   
-            <?php endforeach; ?>
+            </tr>   
+        <?php endforeach; ?>
         
         </tbody>
     </table>
 
-    <!-- MODAL FOR summary -->
-    <div id="acceptModal" class="modal fade" role="dialog">
+    <?php foreach($ordination_min as $ord) : ?>
+        <?php 
+            $father_name = $ord['ord_father_name']; 
+            $mother_name = $ord['ord_mother_name']; 
+            $mother_name = $ord['ord_mother_name'];
+            $solemnizing_official = $ord['ord_solemnizing_official'];
+            $solemnizing_place = $ord['ord_solemnizing_place'];
+            $if_separated = $ord['ord_if_separated'];
+            $if_engaged_to = $ord['ord_if_engaged_to'];
+            $if_engaged_christian = $ord['ord_if_engaged_christian'];
+            $if_engaged_member = $ord['ord_if_engaged_member'];
+            $if_engaged_symphaty = $ord['ord_if_engaged_symphaty'];
+            $if_engaged_not_symphaty = $ord['ord_if_engaged_not_symphaty'];
+            $if_engaged_minister = $ord['ord_if_engaged_minister'];
+            $if_engaged_graduate_fbc = $ord['ord_if_engaged_graduate_fbc'];
+            $if_engaged_when_married = $ord['ord_if_engaged_when_married'];
+            $course_bible_college = $ord['ord_course_bible_college'];
+            $year_conversion_when = $ord['ord_year_conversion_when'];
+            $year_conversion_where = $ord['ord_year_conversion_where'];
+            $year_baptized_when = $ord['ord_year_baptized_when'];
+            $year_baptized_where = $ord['ord_year_baptized_where'];
+            $testimony = $ord['ord_testimony'];
+            $ministerial_activities = $ord['ord_ministerial_activities'];
+            $churches_pioneered = $ord['ord_churches_pioneered'];
+            $churches_evangelized = $ord['ord_churches_evangelized'];
+            $resigned_pastorate = $ord['ord_resigned_pastorate'];
+            $fulltime_ministry = $ord['ord_fulltime_ministry'];
+            $secular_employment = $ord['ord_secular_employment'];
+            $foursquare_credentials = $ord['ord_foursquare_credentials'];
+            $other_licensed = $ord['ord_other_licensed'];
+            $pending_application = $ord['ord_pending_application'];
+            $harmony_authority = $ord['ord_harmony_authority'];
+            $pledged_foursquare = $ord['ord_pledged_foursquare'];
+            $teaching_principles = $ord['ord_teaching_principles'];
+            $teach_tithing = $ord['ord_teach_tithing'];
+            $consistent_tither = $ord['ord_consistent_tither'];
+            $ministry_support = $ord['ord_ministry_support'];
+            $declaration_faith = $ord['ord_declaration_faith'];
+            $way_salvation = $ord['ord_way_salvation'];
+            $holy_trinity = $ord['ord_holy_trinity'];
+            $eternal_security = $ord['ord_eternal_security'];
+
+            $ord_min_id =  $ord['ord_min_id'];
+
+            $ord_id =  $ord['ord_id'];
+        ?>
+        <!-- MODAL FOR summary -->
+        <div id="acceptModal-<?php echo $ord['ord_id']; ?>" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
@@ -559,7 +518,7 @@
         <!-- END MODAL summary -->
 
         <!-- UPDATE MODAL FOR summary -->
-        <div id="updateModal" class="modal fade" role="dialog">
+        <div id="updateModal-<?php echo $ord['ord_id']; ?>" class="modal fade" role="dialog">
             <form action="<?= base_url('ordination/update'); ?>" method="post" accept-charset="utf-8">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -587,9 +546,11 @@
                         <div class="ordination-form">
                             <div class="row">
                                 <div class='col-sm-12'>
+                                    <input type='hidden' name='ord_id' value='<?php echo $ord_id ?>'>
                                     <input type='hidden' name='min_id' value='<?php echo $min_id ?>'>
                                     <input type='hidden' name='date_submited' value='<?php echo date("Y-m-d H:i:s"); ?>'>
                                     <input type='hidden' name='status' value='Submitted'>
+                                    <input type='hidden' name='remarks' value='For District Review'>
                                     <p><b>Personal Record</b></p>
                                 </div>
                                 <div class='col-sm-2'>
@@ -992,6 +953,7 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success">Update</button>
+                        <button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button>
                     </div>
 
                     </div>
@@ -999,4 +961,7 @@
             </form>
         </div>
         <!-- END update modal summary -->
+    <?php endforeach; ?>
+
+   
 </div>

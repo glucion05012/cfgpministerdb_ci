@@ -82,6 +82,13 @@
                 redirect('home');
         }
 
+        public function ordination_update(){
+            $this->ministermodel->update_ordination();
+            
+            $this->session->set_flashdata('successmsg', 'Application successfully updated!');
+            redirect('home');
+    }
+
         public function recommendation($id){
 
             $this->form_validation->set_rules('recommend', 'Recommendation',

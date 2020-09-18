@@ -14,3 +14,4 @@ $route['forms/ordination'] = 'ministercontroller/ordination';
 $route['forms/ordination/recommendation/(:num)'] = 'ministercontroller/recommendation/$1';
 
 $route['ordination/create'] = 'ministercontroller/ordination_create';
+$route['ordination/update'] = 'ministercontroller/ordination_update';
