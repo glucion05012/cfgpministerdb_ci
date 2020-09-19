@@ -30,7 +30,7 @@
                     echo" <td>". $ord['ord_district_status'] ." on ". $ord['ord_district_interview'] ."</td> ";
                 }else if($ord['ord_district_status'] == 'Accepted'){
                     if($ord['ord_national_status'] == 'Accepted'){
-                        echo" <td><span style='color: green;'><b>Ordained</b></span></td> ";
+                        echo" <td><span style='color: green;'><b>Approved</b></span></td> ";
                     }else if($ord['ord_national_status'] == 'For Exam'){
                         echo" <td><b>". $ord['ord_national_status'] ."</b> - ". $ord['ord_national_exam'] ."</td> ";
                     }else if($ord['ord_national_status'] == 'For Interview'){
@@ -45,6 +45,8 @@
                     
                 }else  if($ord['ord_district_status'] == 'Denied'){
                     echo" <td><span style='color: red;'>". $ord['ord_district_status'] ."</span></td> ";
+                }else if($ord['ord_national_status'] == 'Returned'  && $ord['ord_district_status'] == 'Returned'){
+                    echo" <td><b>". $ord['ord_national_status'] ."</b></td> ";
                 }else{
                     echo" <td>". $ord['ord_district_status'] ."</td> ";
                 }
@@ -64,9 +66,16 @@
                 <td><?php echo $i; ?></td>
                 <?php 
                 if ($ord['ord_district_status'] == 'Returned'){
-                    echo"
-                    <td><a href='' data-toggle='modal' data-target='#updateModal-". $ord['ord_id'] ."'><i class='fas fa-edit' style='font-size:24px; margin-left: 1em;'></i></a></td>
-                    ";
+                    if ($ord['ord_national_status'] == 'Returned' && $ord['ord_district_status'] == 'Returned'){
+                        echo"
+                        <td><a href='' data-toggle='modal' data-target='#acceptModal-". $ord['ord_id'] ."'><i class='fa fa-list-alt' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                        ";
+                    }else{
+                        echo"
+                        <td><a href='' data-toggle='modal' data-target='#updateModal-". $ord['ord_id'] ."'><i class='fas fa-edit' style='font-size:24px; margin-left: 1em;'></i></a></td>
+                        ";
+                    }
+                    
                 }else{
                     echo"
                     <td><a href='' data-toggle='modal' data-target='#acceptModal-". $ord['ord_id'] ."'><i class='fa fa-list-alt' style='font-size:24px; margin-left: 1em;'></i></a></td>
