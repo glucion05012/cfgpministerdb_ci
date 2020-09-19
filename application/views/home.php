@@ -29,9 +29,22 @@
                 if($ord['ord_district_status'] == 'For Interview'){
                     echo" <td>". $ord['ord_district_status'] ." on ". $ord['ord_district_interview'] ."</td> ";
                 }else if($ord['ord_district_status'] == 'Accepted'){
-                    echo" <td><span style='color: green;'><b>". $ord['ord_district_status'] ."</b></span> for National Review</td> ";
+                    if($ord['ord_national_status'] == 'Accepted'){
+                        echo" <td><span style='color: green;'><b>Ordained</b></span></td> ";
+                    }else if($ord['ord_national_status'] == 'For Exam'){
+                        echo" <td><b>". $ord['ord_national_status'] ."</b> - ". $ord['ord_national_exam'] ."</td> ";
+                    }else if($ord['ord_national_status'] == 'For Interview'){
+                        echo" <td><b>". $ord['ord_national_status'] ."</b> - ". $ord['ord_national_interview'] ."</td> ";
+                    }else if($ord['ord_national_status'] == 'Denied'){
+                        echo" <td><span style='color: red;'><b>". $ord['ord_national_status'] ."</b></span></td> ";
+                    }else if($ord['ord_national_status'] == 'Submitted'){
+                        echo" <td><b>For National Review</b></td> ";
+                    }else{
+                        echo" <td><b>". $ord['ord_national_status'] ."</b></span></td> ";
+                    }
+                    
                 }else  if($ord['ord_district_status'] == 'Denied'){
-                    echo" <td><span style='color: red;'><b>". $ord['ord_district_status'] ."</b></span></td> ";
+                    echo" <td><span style='color: red;'>". $ord['ord_district_status'] ."</span></td> ";
                 }else{
                     echo" <td>". $ord['ord_district_status'] ."</td> ";
                 }
