@@ -7,6 +7,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'ministercontroller/login';
 $route['logout'] = 'ministercontroller/logout';
+$route['settings'] = 'ministercontroller/settings';
 $route['home'] = 'ministercontroller/home';
 
 $route['forms/ordination'] = 'ministercontroller/ordination';

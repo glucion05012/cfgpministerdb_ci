@@ -75,6 +75,24 @@
             }
         }
 
+        public function settings(){
+            $this->form_validation->set_rules('new_password', 'Field',
+                    'required');
+
+            if($this->form_validation->run() === FALSE){
+                $this->load->view('templates/header');
+                $this->load->view('settings');
+                $this->load->view('templates/footer'); 
+            }else{
+
+            $this->ministermodel->update_password();
+            
+            $this->session->set_flashdata('successmsg', 'Password successfully updated!');
+            redirect('home');
+            }
+
+        }
+
         public function ordination_create(){
                 $this->ministermodel->add_ordination();
                 

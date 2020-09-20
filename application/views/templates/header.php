@@ -98,6 +98,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
+                <a href="<?php echo base_url(); ?>settings" class="nav-link" class="nav-link active">
+                  <i class="fas fa-cog nav-icon"></i>
+                  <p>Password</p>
+                </a>
+          </li>
+          <li class="nav-item">
                 <a href="<?php echo base_url(); ?>logout" class="nav-link" class="nav-link active">
                   <i class="fas fa-sign-out-alt nav-icon"></i>
                   <p>Logout</p>

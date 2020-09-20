@@ -11,16 +11,38 @@ class Ministermodel extends CI_Model{
         $psw = $this->input->post('psw');
         
 
-        $this->master->where('min_fullname', $uname);
-        $this->master->where('min_credential_no', $psw);
-        $query = $this->master->get('tbl_minister');
-        $loginCnt = $query->num_rows();
+        $this->minister->where('lg_min_fullname', $uname);
+        $this->minister->where('lg_password', $psw);
+        $query1 = $this->minister->get('login');
+        $loginCnt1 = $query1->num_rows();
+        
+        if($loginCnt1 == 0){
 
-        if($loginCnt == 0){
-            return false; 
+
+            $this->minister->where('lg_min_fullname', $uname);
+            $query2 = $this->minister->get('login');
+            $loginCnt2 = $query2->num_rows();
+            if($loginCnt2 == 0){
+                $this->master->where('min_fullname', $uname);
+                $this->master->where('min_credential_no', $psw);
+                $query = $this->master->get('tbl_minister');
+                $loginCnt = $query->num_rows();
+
+                if($loginCnt == 0){
+                    return false; 
+                }else{
+                    return $query->result_array();
+                }
+            }
         }else{
+            $this->master->where('min_fullname', $uname);
+            $query = $this->master->get('tbl_minister');
             return $query->result_array();
         }
+        return false;
+
+
+        
     }
 
     public function get_minister($id){
@@ -49,6 +71,46 @@ class Ministermodel extends CI_Model{
         $query = $this->master->get();
    
         return $query->result_array();
+    }
+
+    public function update_password(){
+        $uname = $this->input->post('username');
+
+        $this->minister->where('lg_min_fullname', $uname);
+        $query1 = $this->minister->get('login');
+        $loginCnt1 = $query1->num_rows();
+        
+        if($loginCnt1 == 0){
+
+            $this->minister->where('lg_min_fullname', $uname);
+            $query2 = $this->minister->get('login');
+            $loginCnt2 = $query2->num_rows();
+            if($loginCnt2 == 0){
+                $this->master->where('min_fullname', $uname);
+                $query = $this->master->get('tbl_minister');
+                $loginCnt = $query->num_rows();
+
+                if($loginCnt == 0){
+                    return false; 
+                }else{
+                    $data = array(
+                        'lg_min_fullname' => $this->input->post('username'),
+                        'lg_password' => $this->input->post('new_password'),
+                    );
+            
+                    return $this->minister->insert('login', $data);
+                }
+            }
+        }else{
+            $data = array(
+                'lg_password' => $this->input->post('new_password'),
+            );
+    
+            $this->minister->where('lg_min_fullname',  $this->input->post('username'));
+            return $this->minister->update('login', $data);
+        }
+        return false;
+
     }
 
     public function add_ordination(){

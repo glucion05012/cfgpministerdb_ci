@@ -81,3 +81,10 @@ CREATE TABLE recommendation_ordination (
     PRIMARY KEY (ro_id),
     FOREIGN KEY (ro_ord_id) REFERENCES ordination(ord_id)
 );
+
+CREATE TABLE login (
+    lg_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    lg_min_fullname VARCHAR(200),
+    lg_password VARCHAR(200),
+    PRIMARY KEY (lg_id)
+);
