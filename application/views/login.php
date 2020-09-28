@@ -16,7 +16,7 @@
         <img src="<?= base_url('assets/logo/4squareLogo.jpg'); ?>" width="100" height="100">
     </div>
     <div>
-        <p style="color: gray">Version 1.0.1.4</p>
+        <p style="color: gray">Version 1.0.2.1</p>
     </div>
 
     <div class="container">
