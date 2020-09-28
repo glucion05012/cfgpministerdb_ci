@@ -38,7 +38,8 @@
 
             unset($_SESSION['name']);
             unset($_SESSION['id']);
-            $this->load->view('login');
+            $url = base_url('login');
+            redirect($url);
         }
         
         public function home(){
