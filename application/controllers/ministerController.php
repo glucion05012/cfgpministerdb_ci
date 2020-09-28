@@ -20,6 +20,7 @@
                     $name = $_SESSION['name'] =  trim($fullname, '"');
                     $id = $_SESSION['id'] =  trim($id, '"');
 
+                    $this->ministermodel->logs_in('logged in');
                     $this->home();
                 }     
                 else{
@@ -33,6 +34,8 @@
         }
 
         public function logout(){
+            $this->ministermodel->logs('logged out');
+
             unset($_SESSION['name']);
             unset($_SESSION['id']);
             $this->load->view('login');
@@ -87,8 +90,8 @@
 
             $this->ministermodel->update_password();
             
-            $this->session->set_flashdata('successmsg', 'Password successfully updated!');
-            redirect('home');
+            echo"<script>alert('Password Successfully changed! Please login again.');</script>";
+            $this->logout();
             }
 
         }

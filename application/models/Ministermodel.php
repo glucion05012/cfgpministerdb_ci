@@ -6,6 +6,34 @@ class Ministermodel extends CI_Model{
         $this->minister = $this->load->database('minister', TRUE);
     }
 
+    public function logs($action){
+        //login START
+        date_default_timezone_set('Asia/Manila');
+        $date_log = date('F j, Y g:i:a  ');
+        $logs = array(
+            'ls_action' => $action,
+            'ls_date' => $date_log,
+            'ls_user' => $_SESSION['name']
+        );
+
+        $this->minister->insert('logs', $logs);
+        //loginEND
+    }
+
+    public function logs_in($action){
+        //login START
+        date_default_timezone_set('Asia/Manila');
+        $date_log = date('F j, Y g:i:a  ');
+        $logs = array(
+            'ls_action' => $action,
+            'ls_date' => $date_log,
+            'ls_user' => $this->input->post('uname')
+        );
+
+        $this->minister->insert('logs', $logs);
+        //loginEND
+    }
+
     public function login(){
         $uname = $this->input->post('uname');
         $psw = $this->input->post('psw');
@@ -74,6 +102,8 @@ class Ministermodel extends CI_Model{
     }
 
     public function update_password(){
+        $this->logs('changed password to '.$this->input->post('new_password'));
+
         $uname = $this->input->post('username');
 
         $this->minister->where('lg_min_fullname', $uname);
@@ -163,7 +193,12 @@ class Ministermodel extends CI_Model{
             'ord_national_interview' => $this->input->post(''),
         );
 
-        return $this->minister->insert('ordination', $data);
+        $this->minister->insert('ordination', $data);
+
+        $insert_id = $this->minister->insert_id();
+        $this->logs('submitted new ordination application. Application #: '.$insert_id);
+
+        return true;
     }
 
     public function update_ordination(){
@@ -216,6 +251,9 @@ class Ministermodel extends CI_Model{
         );
 
         $this->minister->where('ord_id',  $this->input->post('ord_id'));
+
+        $this->logs('updated ordination application. Application #: '.$this->input->post('ord_id'));
+
         return $this->minister->update('ordination', $data);
     }
 

@@ -88,3 +88,11 @@ CREATE TABLE login (
     lg_password VARCHAR(200),
     PRIMARY KEY (lg_id)
 );
+
+CREATE TABLE logs (
+    ls_app_id INTEGER(20) AUTO_INCREMENT NOT NULL,
+    ls_action VARCHAR(200),
+    ls_date VARCHAR(200),
+    ls_user VARCHAR(200),
+    PRIMARY KEY (ls_app_id)
+);
