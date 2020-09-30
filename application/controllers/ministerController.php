@@ -26,8 +26,7 @@
                 else{
                     $this->session->set_flashdata('errormsg', 'No User found!');
 
-                    $url = $_SERVER['HTTP_REFERER'];
-                    redirect($url);
+                    $this->load->view('login');
                 } 
             }       
             
