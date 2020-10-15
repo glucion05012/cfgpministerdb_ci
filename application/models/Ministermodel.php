@@ -251,10 +251,11 @@ class Ministermodel extends CI_Model{
         );
 
         $this->minister->where('ord_id',  $this->input->post('ord_id'));
+        $this->minister->update('ordination', $data);
+        
+        return $this->logs('updated ordination application. Application #: '.$this->input->post('ord_id'));
 
-        $this->logs('updated ordination application. Application #: '.$this->input->post('ord_id'));
-
-        return $this->minister->update('ordination', $data);
+        
     }
 
     public function get_ordination_min($id){
